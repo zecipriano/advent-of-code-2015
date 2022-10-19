@@ -28,15 +28,21 @@ class Day01 extends Command
         }
 
         $floor = 0;
+        $basement = null;
 
-        foreach ($charsArray as $char) {
+        foreach ($charsArray as $key => $char) {
             $floor += match ($char) {
                 '(' => 1,
                 ')' => -1,
             };
+
+            if (!$basement && $floor < 0) {
+                $basement = $key;
+            }
         }
 
-        $output->writeln("The elevator stopped on floor $floor.");
+        $output->writeln("[Part 1] The elevator stopped on floor $floor.");
+        $output->writeln("[Part 2] The elevator first visited the basement after " . ++$basement . " moves.");
 
         return Command::SUCCESS;
     }
