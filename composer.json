@@ -1,0 +1,16 @@
+{
+    "name": "zecipriano/advent-of-code-2015",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AdventOfCode2015\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zé Cipriano",
+            "email": "ze@zecipriano.com"
+        }
+    ],
+    "require": {}
+}
