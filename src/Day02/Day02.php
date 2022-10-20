@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2015\Day02;
 
-use AdventOfCode2015\Day01\Present;
+use AdventOfCode2015\Day02\Present;
 use AdventOfCode2015\Utils\FileReader;
 use AdventOfCode2015\Utils\UnreadableFile;
 use Symfony\Component\Console\Command\Command;

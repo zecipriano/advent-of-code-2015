@@ -1,6 +1,6 @@
 <?php
 
-namespace AdventOfCode2015\Day01;
+namespace AdventOfCode2015\Day02;
 
 class PresentSide
 {
