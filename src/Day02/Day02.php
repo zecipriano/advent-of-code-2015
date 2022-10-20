@@ -34,12 +34,15 @@ class Day02 extends Command
         }, $dimensions);
 
         $totalPaperNeeded = 0;
+        $totalRibbonNeeded = 0;
 
         foreach ($presents as $present) {
             $totalPaperNeeded += $present->paperNeeded();
+            $totalRibbonNeeded += $present->ribbonNeeded();
         }
 
-        $output->writeln("$totalPaperNeeded square feet of paper are needed.");
+        $output->writeln("[Part 1] $totalPaperNeeded square feet of paper are needed.");
+        $output->writeln("[Part 2] $totalRibbonNeeded feet of ribbon are needed.");
 
         return Command::SUCCESS;
     }
