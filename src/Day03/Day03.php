@@ -27,17 +27,25 @@ class Day03 extends Command
             return Command::FAILURE;
         }
 
-        $houses[0][0] = 1;
-        $santa = new Santa(0, 0);
+        // For part 1
+        $housesMap = new HousesMap();
+        $santa = new Santa(0, 0, $housesMap);
 
-        foreach ($charsArray as $char) {
+        // For part 2
+        $sharedHousesMap = new HousesMap();
+        $secondSanta = new Santa(0, 0, $sharedHousesMap);
+        $robotSanta = new Santa(0, 0, $sharedHousesMap);
+
+        foreach ($charsArray as $key => $char) {
             $santa->moveFromChar($char);
-            $houses[$santa->x()][$santa->y()] = 1;
+            $key % 2 === 0 ? $secondSanta->moveFromChar($char) : $robotSanta->moveFromChar($char);
         }
 
-        $housesCount = array_sum(array_map('count', $houses));
+        $housesCount = $housesMap->housesCount();
+        $sharedHousesCount = $sharedHousesMap->housesCount();
 
-        $output->writeln("Santa visited $housesCount distinct houses.");
+        $output->writeln("[Part 1] Santa visited $housesCount distinct houses.");
+        $output->writeln("[Part 2] Santa and Robot Santa visited $sharedHousesCount distinct houses.");
 
         return Command::SUCCESS;
     }
