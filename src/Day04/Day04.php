@@ -27,11 +27,23 @@ class Day04 extends Command
             return Command::FAILURE;
         }
 
+        $fiveZeros = false;
+        $sixZeros = false;
+
         for ($n = 1; $n <= PHP_INT_MAX; $n++) {
             $hash = md5($inputString . $n);
 
-            if (str_starts_with($hash, '00000')) {
-                $output->writeln("The first hash that starts with five zeros appears at number $n.");
+            if (! $fiveZeros && str_starts_with($hash, '00000')) {
+                $output->writeln("[Part 1] The first hash that starts with five zeros appears at number $n.");
+                $fiveZeros = true;
+            }
+
+            if ($fiveZeros && ! $sixZeros && str_starts_with($hash, '000000')) {
+                $output->writeln("[Part 2] The first hash that starts with six zeros appears at number $n.");
+                $sixZeros = true;
+            }
+
+            if ($fiveZeros && $sixZeros) {
                 break;
             }
         }
