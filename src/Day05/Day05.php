@@ -27,16 +27,22 @@ class Day05 extends Command
             return Command::FAILURE;
         }
 
-        $checker = new StringChecker();
-        $count = 0;
+        $count1 = $count2 = 0;
+        $checker1 = new StringChecker(Rules::RULESET01);
+        $checker2 = new StringChecker(Rules::RULESET02);
 
         foreach ($strings as $string) {
-            if($checker->isNice($string)) {
-                $count++;
+            if ($checker1->isNice($string)) {
+                $count1++;
+            }
+
+            if ($checker2->isNice($string)) {
+                $count2++;
             }
         }
 
-        $output->writeln("$count nice strings.");
+        $output->writeln("[Part 1] $count1 nice strings with rule set 1.");
+        $output->writeln("[Part 2] $count2 nice strings with rule set 2.");
 
         return Command::SUCCESS;
     }

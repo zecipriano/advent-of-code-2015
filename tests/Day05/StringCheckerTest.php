@@ -2,19 +2,27 @@
 
 namespace Tests\Day05;
 
+use AdventOfCode2015\Day05\Rules;
 use AdventOfCode2015\Day05\StringChecker;
 use PHPUnit\Framework\TestCase;
 
 class StringCheckerTest extends TestCase
 {
-    /** @dataProvider stringsProvider */
-    public function test_it_checks_strings($string, $expected): void
+    /** @dataProvider ruleset01 */
+    public function test_it_checks_strings_with_ruleset_01($string, $expected): void
     {
-        $checker = new StringChecker();
+        $checker = new StringChecker(Rules::RULESET01);
         self::assertSame($expected, $checker->isNice($string));
     }
 
-    private function stringsProvider(): array
+    /** @dataProvider ruleset02 */
+    public function test_it_checks_strings_with_ruleset_02($string, $expected): void
+    {
+        $checker = new StringChecker(Rules::RULESET02);
+        self::assertSame($expected, $checker->isNice($string));
+    }
+
+    private function ruleset01(): array
     {
         return [
             ['ugknbfddgicrmopn', true],
@@ -23,25 +31,17 @@ class StringCheckerTest extends TestCase
             ['haegwjzuvuyypxyu', false],
             ['dvszwmarrgswjxmb', false],
             ['rthkunfaakmwmush', true],
-            ['qxlnvjguikqcyfzt', false],
-            ['sleaoasjspnjctqt', false],
-            ['lactpmehuhmzwfjl', false],
-            ['bvggvrdgjcspkkyj', false],
-            ['nwaceixfiasuzyoz', false],
-            ['hsapdhrxlqoiumqw', false],
-            ['lsitcmhlehasgejo', false],
-            ['hksifrqlsiqkzyex', false],
-            ['dfwuxtexmnvjyxqc', false],
-            ['iawwfwylyrcbxwak', true],
-            ['mamtkmvvaeeifnve', true],
-            ['qiqtuihvsaeebjkd', true],
-            ['skerkykytazvbupg', false],
-            ['kgnxaylpgbdzedoo', true],
-            ['plzkdktirhmumcuf', false],
-            ['pexcckdvsrahvbop', true],
-            ['jpocepxixeqjpigq', false],
-            ['vnsvxizubavwrhtc', false],
-            ['lqveclebkwnajppk', true],
+        ];
+    }
+
+    private function ruleset02(): array
+    {
+        return [
+            ['qjhvhtzxzqqjkmpb', true],
+            ['xxyxx', true],
+            ['uurcxstgmygtbstg', false],
+            ['ieodomkazucvgmuy', false],
+            ['rthkunfaakmwmush', false],
         ];
     }
 }
