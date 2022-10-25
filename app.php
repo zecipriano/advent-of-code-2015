@@ -11,10 +11,11 @@ $app->addCommands([
     new AdventOfCode2015\Day02\Day02,
     new AdventOfCode2015\Day03\Day03,
     new AdventOfCode2015\Day04\Day04,
+    new AdventOfCode2015\Day05\Day05,
 ]);
 
 try {
     $app->run();
 } catch (Exception $e) {
-    var_dump($e);
+    echo $e->getMessage();
 }
