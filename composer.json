@@ -6,6 +6,11 @@
             "AdventOfCode2015\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Zé Cipriano",
@@ -16,6 +21,7 @@
         "symfony/console": "^6.1"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9.5"
     }
 }
