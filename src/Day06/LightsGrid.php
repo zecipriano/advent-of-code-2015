@@ -24,7 +24,7 @@ class LightsGrid
         );
     }
 
-    public function countLit(): int
+    public function total(): int
     {
         return array_sum(array_map('array_sum', $this->grid));
     }

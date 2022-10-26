@@ -28,12 +28,17 @@ class Day06 extends Command
         }
 
         $lightsGrid = new LightsGrid();
+        $brightnessLightsGrid = new BrightnessLightsGrid();
 
-        foreach ($instructions as $instruction) {
-            $lightsGrid->instruction(Instruction::fromString($instruction));
+        foreach ($instructions as $inst) {
+            $inst = Instruction::fromString($inst);
+
+            $lightsGrid->instruction($inst);
+            $brightnessLightsGrid->instruction($inst);
         }
 
-        $output->writeln($lightsGrid->countLit() . ' lights are lit.');
+        $output->writeln("[Part 1] " . $lightsGrid->total() . ' lights are lit.');
+        $output->writeln("[Part 2] The total brightness is " . $brightnessLightsGrid->total() . '.');
 
         return Command::SUCCESS;
     }
