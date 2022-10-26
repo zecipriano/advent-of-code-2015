@@ -12,6 +12,7 @@ $app->addCommands([
     new AdventOfCode2015\Day03\Day03,
     new AdventOfCode2015\Day04\Day04,
     new AdventOfCode2015\Day05\Day05,
+    new AdventOfCode2015\Day06\Day06,
 ]);
 
 try {
